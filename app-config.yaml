@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helmargo-config
+  namespace: argocd
+spec:
+  project: my-project
+  source:
+    repoURL: https://github.com/little-bear-creator/DemoConfig.git
+    targetRevision: main
+    path: .
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: spring-apps-dev
